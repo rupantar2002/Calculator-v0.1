@@ -28,7 +28,7 @@ public class PostfixGen {
         for (String s : infix) {
             val = s;
 
-            System.out.println("val "+val);
+//            System.out.println("val "+val);
 
             if (operatorsCharacteristics.isNumeric(val)) {
                 postfix.add(val);
@@ -38,7 +38,7 @@ public class PostfixGen {
             } else if (val.equals("(")) {
                 stack.push(val);
             } else if (val.equals(")")) {
-                System.out.println("here");
+//                System.out.println("here");
                 //adding the content up to opening bracket found
                 while (!stack.peek().equals("(")) {
                     String temp = stack.pop();
@@ -63,7 +63,7 @@ public class PostfixGen {
                 move_operators_to_postfix_until_lower_precedence_occur(val,stack,postfix);
                 stack.push(val);
             } else {
-                System.out.println("undefined state: Error on line 80 :: PostfixCreater class");
+                System.out.println("undefined state: Error on line 66 :: PostfixCreater class");
             }
             //System.out.println(val);
 

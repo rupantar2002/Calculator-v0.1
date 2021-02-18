@@ -21,9 +21,8 @@ public class main {
             String input = "";
             input = scanner.nextLine();
             calculator.add(input);
-            calculator.showInput();
-            calculator.showInfix();
-            calculator.showPostfix();
+            System.out.println(calculator.getInput());
+            System.out.println(calculator.getResult());
 
         } while (true);
 

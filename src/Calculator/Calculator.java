@@ -7,6 +7,7 @@ public class Calculator {
 
     /*-------Member Variables------*/
 
+
     private ArrayList<String> inputs = new ArrayList<>();
     private ArrayList<String> infix = new ArrayList<>();
     private ArrayList<String> postfix = new ArrayList<>();
@@ -32,13 +33,20 @@ public class Calculator {
         if (oc.isNumeric(inputs.get(inputs.size() - 1))) {
             result = oc.evaluate(postfix);
         }
-        System.out.println("the result::" + result);
+//        System.out.println("the result::" + result);
     }
 
     private void syntaxChecker(String str) {
 
         if (oc.isPoint(str)) {
-            str = 0 + str;
+
+            if (inputs.isEmpty())                                       // if input is a decimal point and list is empty
+            {
+                str = 0 + str;
+            } else if (!oc.isNumeric(inputs.get(inputs.size() - 1))) {  // if input is a decimal point
+                str = 0 + str;
+
+            }
         }
 
 
@@ -121,4 +129,14 @@ public class Calculator {
         System.out.print(" ]");
         System.out.println();
     }
+
+    public String getInput() {
+        return inputs.toString();
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+
 }
